@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: encastil <encastil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/21 16:18:46 by encastil          #+#    #+#             */
+/*   Updated: 2022/08/31 12:01:57 by encastil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_is_lowercase(char c)
+{
+	if (97 <= c && c <= 122)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_is_uppercase(char c)
+{
+	if (65 <= c && c <= 90)
+		return (1);
+	else
+		return (0);
+}
+
+char	*ft_strcapitalize(char *str)
+{
+	int	x;
+	int	is_symbol;
+
+	x = 0;
+	if (ft_is_lowercase(str[x]) == 1)
+		str[x] = str[x] - 32;
+	x++;
+	while (str[x] != '\0')
+	{
+		is_symbol = 0;
+		if (ft_is_uppercase(str[x]) == 1)
+			str[x] = str[x] + 32;
+		if (31 < str[x] && str[x] < 48)
+			is_symbol = 1;
+		if (57 < str[x] && str[x] < 65)
+			is_symbol = 1;
+		if (90 < str[x] && str[x] < 97)
+			is_symbol = 1;
+		if (122 < str[x] && str[x] < 127)
+			is_symbol = 1;
+		if (is_symbol == 1)
+		{
+			x++;
+			if (ft_is_lowercase(str[x]) == 1)
+				str[x] = str[x] - 32;
+		}
+		x++;
+	}
+	return (str);
+}

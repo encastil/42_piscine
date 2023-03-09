@@ -1,0 +1,12 @@
+#include	<stdio.h>
+
+int	ft_is_lowercase(char c);
+int	ft_is_uppercase(char c);
+char	*ft_strcapitalize(char *str);
+
+int	main(void)
+{
+	char	str01[] = "Salut, cOmment tu vAS ? 42mots quarante-deux; cinquante+et+un";
+	printf("%s", ft_strcapitalize(str01));
+	return (0);
+}

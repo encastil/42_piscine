@@ -1,0 +1,12 @@
+#include	<stdio.h>
+
+char	*ft_strcpy(char *dest, char *src);
+
+int	main(void)
+{
+	char	str01[] = "ment";
+	char	str02[] = "";
+
+	printf("%s", ft_strcpy(str02, str01));
+	return (0);
+}

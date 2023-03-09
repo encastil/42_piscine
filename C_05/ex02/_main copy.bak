@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int	ft_iterative_power(int nb, int power);
+
+int	ft_argnbr(char **str)
+{
+	int	x;
+	int	out;
+
+	x = 0;
+	while (*str[x] != '\0')
+	{
+		if (48 <= *str[x] && *str[x] <= 57)
+		{
+			out *= 10;
+			out += *str[x] - 48;
+		}
+		x++;
+	}
+	if (str[x][0] == 45)
+		out *= -1;
+	return (out);
+}
+
+int	main(int argc, char **argv)
+{
+	int	arg_1;
+	int	arg_2;
+	int	out;
+
+	if (argc > 1)
+	{
+		arg_1 = ft_argnbr(argv[1]);
+		arg_2 = ft_argnbr(argv[2]);
+		out = ft_iterative_power(arg_1, arg_2);
+		printf("%d\n", out);
+	}
+	return (0);
+}
